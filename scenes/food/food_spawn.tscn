@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0l2ewejbvid3"]
+
+[ext_resource type="Script" uid="uid://tkco48qhyamj" path="res://scripts/food/food_spawn.gd" id="1_rrsbm"]
+[ext_resource type="PackedScene" uid="uid://b6qyi5l0iqcmr" path="res://scenes/food/food.tscn" id="2_j81i3"]
+[ext_resource type="PackedScene" uid="uid://cmjt6tnwg2xrk" path="res://scenes/food/food_slow.tscn" id="3_j81i3"]
+
+[node name="food_spawn" type="Node" node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("1_rrsbm")
+food = ExtResource("2_j81i3")
+slow_food = ExtResource("3_j81i3")
+spawn_points = [NodePath("SpawnFood"), NodePath("SpawnFood2"), NodePath("SpawnFood3"), NodePath("SpawnFood4"), NodePath("SpawnFood5"), NodePath("SpawnFood6"), NodePath("SpawnFood8"), NodePath("SpawnFood9"), NodePath("SpawnFood10")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="SpawnFood" type="Marker2D" parent="."]
+position = Vector2(552, -272)
+
+[node name="SpawnFood2" type="Marker2D" parent="."]
+position = Vector2(376, 88)
+
+[node name="SpawnFood3" type="Marker2D" parent="."]
+position = Vector2(-272, -168)
+
+[node name="SpawnFood4" type="Marker2D" parent="."]
+position = Vector2(-256, -400)
+
+[node name="SpawnFood5" type="Marker2D" parent="."]
+position = Vector2(-104, 48)
+
+[node name="SpawnFood6" type="Marker2D" parent="."]
+position = Vector2(608, -416)
+
+[node name="SpawnFood7" type="Marker2D" parent="."]
+position = Vector2(-168, -600)
+
+[node name="SpawnFood8" type="Marker2D" parent="."]
+position = Vector2(16, -736)
+
+[node name="SpawnFood9" type="Marker2D" parent="."]
+position = Vector2(248, -752)
+
+[node name="SpawnFood10" type="Marker2D" parent="."]
+position = Vector2(488, -632)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

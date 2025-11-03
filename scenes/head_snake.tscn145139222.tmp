@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4dl6dnvlnoqa"]
+
+[ext_resource type="PackedScene" uid="uid://d0l2ewejbvid3" path="res://scenes/food_spawn.tscn" id="1_dkmmu"]
+[ext_resource type="Script" uid="uid://bf7neb2rhlb70" path="res://scripts/head.gd" id="1_k3tyt"]
+[ext_resource type="PackedScene" uid="uid://dyenqdp6ey52y" path="res://scenes/segment_body.tscn" id="2_fjwty"]
+[ext_resource type="Texture2D" uid="uid://djgswfhm00yqa" path="res://sprites/head.tres" id="2_k3tyt"]
+[ext_resource type="PackedScene" uid="uid://cce5unx1kghjj" path="res://scenes/game_over_ui.tscn" id="3_bem2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3tyt"]
+size = Vector2(20.622871, 21.245743)
+
+[node name="HeadSnake" type="CharacterBody2D" groups=["player"]]
+rotation = 1.5707964
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_k3tyt")
+segment_scene = ExtResource("2_fjwty")
+game_over_ui_scene = ExtResource("3_bem2n")
+
+[node name="FoodManager" type="Node" parent="."]
+
+[node name="Food_spawn" parent="FoodManager" instance=ExtResource("1_dkmmu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.23454033, -4.6490776e-09)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_k3tyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("2_k3tyt")

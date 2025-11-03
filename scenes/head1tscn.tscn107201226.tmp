@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://do2qm3gk3eg1r"]
+
+[ext_resource type="Script" uid="uid://bf7neb2rhlb70" path="res://scripts/head.gd" id="1_2vr24"]
+[ext_resource type="Texture2D" uid="uid://djgswfhm00yqa" path="res://sprites/head.tres" id="2_gqeta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vr24"]
+size = Vector2(17.082, 17.384117)
+
+[node name="head" type="Node2D"]
+
+[node name="Snake" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(368, 176)
+scale = Vector2(1, 0.99999994)
+script = ExtResource("1_2vr24")
+
+[node name="Sprite2D" type="Sprite2D" parent="Snake"]
+rotation = 1.5591675
+scale = Vector2(7.4777985, 7.511208)
+texture = ExtResource("2_gqeta")
+
+[node name="Area2D" type="Area2D" parent="Snake/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Sprite2D/Area2D"]
+position = Vector2(0.04330063, 0.049541473)
+rotation = -0.0033667693
+scale = Vector2(0.49010396, 0.49010387)
+shape = SubResource("RectangleShape2D_2vr24")

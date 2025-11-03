@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6qyi5l0iqcmr"]
+
+[ext_resource type="Script" uid="uid://cdvycr81fpql3" path="res://scripts/food/food.gd" id="1_dkmuf"]
+[ext_resource type="Texture2D" uid="uid://bvx3sqaq4an54" path="res://sprites/food.tres" id="2_4y3qy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xven1"]
+size = Vector2(16, 16)
+
+[node name="Food" type="Node2D" groups=["food"]]
+script = ExtResource("1_dkmuf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xven1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(2.325175, 2.0137913)
+texture = ExtResource("2_4y3qy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
